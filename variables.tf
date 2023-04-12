@@ -1,43 +1,28 @@
-variable "environment" {
-  description = "The Proton Environment"
-  type = object({
-    name   = string
-    inputs = map(string)
-  })
-  default = null
+variable "access_key" {
+        description = "Access key to AWS console"
+}
+variable "secret_key" {
+        description = "Secret key to AWS console"
 }
 
-variable "vpc_cidr" {
-  description = "The CIDR block for the VPC, e.g: 10.0.0.0/16"
-  default     = "10.0.0.0/16"
+
+variable "instance_name" {
+        description = "Name of the instance to be created"
+        default = "awsbuilder-demo"
 }
 
-variable "master_subnet_cidrs" {
- type        = list(string)
- description = "Public Subnet CIDR values"
- default     = ["10.0.8.0/24", "10.0.16.0/24", "10.0.32.0/24"]
+variable "instance_type" {
+        default = "t2.micro"
 }
 
-variable "azs" {
- type        = list(string)
- description = "Availability Zones"
- default     = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+
+variable "ami_id" {
+        description = "The AMI to use"
+        default = "ami-09d56f8956ab235b3"
 }
 
-variable "worker_subnet_cidrs" {
- type        = list(string)
- description = "Private Subnet CIDR values"
- default     = ["10.0.128.0/20", "10.0.144.0/20", "10.0.160.0/20"]
+variable "number_of_instances" {
+        description = "number of instances to be created"
+        default = 2
 }
 
-variable "network_tag_prefix" {
-  type        = string
-  description = "Network tag prefix to identify VPC. Tag will then become 'tag-vpc' "
-  default     = "Proton_VPC_Test"       
-}
-
-variable "token" {
-  type        = string
-  description = "Specifies the GitHub PAT token or `GITHUB_TOKEN`"
-  sensitive   = true
-}
