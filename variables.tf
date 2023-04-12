@@ -35,3 +35,9 @@ variable "network_tag_prefix" {
   description = "Network tag prefix to identify VPC. Tag will then become 'tag-vpc' "
   default     = "Proton_VPC_Test"       
 }
+
+variable "token" {
+  type        = string
+  description = "Specifies the GitHub PAT token or `GITHUB_TOKEN`"
+  sensitive   = true
+}
