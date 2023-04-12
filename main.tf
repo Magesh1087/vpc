@@ -17,6 +17,7 @@ provider "aws" {
 
 provider "github" {
   token = "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"
+}
 
 #Creating AWS VPC for Public/Private
 resource "aws_vpc" "pubpvt-vpc" {
